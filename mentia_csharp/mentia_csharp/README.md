@@ -4,9 +4,9 @@ Este repositório contém a implementação de um serviço web RESTful para o pr
 
 ## Integrantes do Grupo
 
-- Integrante 1 — _Nome completo_
-- Integrante 2 — _Nome completo_
-- Integrante 3 — _Nome completo_
+joao arthur Rm:551272
+Geovanna Rm:97736
+Victor Rm:98384
 
 ## Objetivo do Projeto
 
@@ -86,6 +86,3 @@ O diagrama a seguir ilustra esses componentes e o fluxo principal de informaçõ
 
 ![Diagrama de Arquitetura](docs/architecture_diagram.png)
 
-## Considerações Finais
-
-Este projeto demonstra as práticas solicitadas no enunciado: definição de entidades, boas práticas REST, versionamento, integração com EF Core/Migrations, documentação Swagger e descrição de arquitetura. Ele pode ser expandido para incluir autenticação, autorização e regras de negócio específicas ao domínio MentIA conforme necessário.
