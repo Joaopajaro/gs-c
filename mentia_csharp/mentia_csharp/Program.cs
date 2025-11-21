@@ -6,14 +6,14 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllers();
 
-// Register the database context using SQLite. The connection string is defined in appsettings.json.
+
 builder.Services.AddDbContext<MentiaDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configure API versioning. Default version is v1.0 and URL segment reader is used.
+
 builder.Services.AddApiVersioning(options =>
 {
     options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -42,7 +42,7 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -59,5 +59,4 @@ app.UseAuthorization();
 app.MapControllers();
 app.Run();
 
-// Make the implicit Program class public for integration testing.
 public partial class Program { }
