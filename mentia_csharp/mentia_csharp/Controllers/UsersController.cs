@@ -5,9 +5,7 @@ using MentiaApi.Models;
 
 namespace MentiaApi.Controllers
 {
-    /// <summary>
-    /// API controller for managing users. Supports both v1 and v2 via URL segment versioning.
-    /// </summary>
+
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]
@@ -21,10 +19,7 @@ namespace MentiaApi.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Gets all users.
-        /// </summary>
-        /// <returns>A list of users.</returns>
+    
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
@@ -32,11 +27,7 @@ namespace MentiaApi.Controllers
             return await _context.Users.Include(u => u.Role).ToListAsync();
         }
 
-        /// <summary>
-        /// Gets a user by its identifier.
-        /// </summary>
-        /// <param name="id">User identifier</param>
-        /// <returns>The user if found, otherwise 404.</returns>
+        
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -51,11 +42,7 @@ namespace MentiaApi.Controllers
             return user;
         }
 
-        /// <summary>
-        /// Creates a new user.
-        /// </summary>
-        /// <param name="user">User to create</param>
-        /// <returns>Created user with 201 status.</returns>
+ 
         [HttpPost]
         [ProducesResponseType(typeof(User), StatusCodes.Status201Created)]
         public async Task<ActionResult<User>> PostUser(User user)
@@ -66,12 +53,7 @@ namespace MentiaApi.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id, version }, user);
         }
 
-        /// <summary>
-        /// Updates an existing user.
-        /// </summary>
-        /// <param name="id">User identifier</param>
-        /// <param name="user">User with updated values</param>
-        /// <returns>No content if successful, 404 if not found.</returns>
+    
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -100,11 +82,7 @@ namespace MentiaApi.Controllers
             return NoContent();
         }
 
-        /// <summary>
-        /// Deletes a user.
-        /// </summary>
-        /// <param name="id">User identifier</param>
-        /// <returns>No content if deleted, 404 if not found.</returns>
+       
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
