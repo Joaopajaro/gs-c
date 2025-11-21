@@ -2,10 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MentiaApi.Models
 {
-    /// <summary>
-    /// Represents a role in the system (e.g. Administrator, User, Mentor). Roles group permissions
-    /// and are associated with many users.
-    /// </summary>
+
     public class Role
     {
         [Key]
